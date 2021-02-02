@@ -1,0 +1,14 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "2021 portfolio",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shin Hyuk-jun",
+  "license": "ISC",
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
