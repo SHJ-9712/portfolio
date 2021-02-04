@@ -1,0 +1,69 @@
+@charset "utf-8";
+.about-me {
+    margin: 32px 0;
+    display: flex;
+    &__box {
+        width: 49.138%;
+        padding: 88px;
+        background-color: $gold-color;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+        &:first-of-type {
+            margin-right: 32px;
+        }
+        h2 {
+            margin: 0;
+            font-size: 42px;
+            text-transform: uppercase;
+        }
+        &__ico {
+            margin: 32px 0 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                width: 50%;
+                margin-bottom: 30px;
+                display: flex;
+                align-items: center;
+                cursor: default;
+                z-index: 10;
+                &::before {
+                    content: '';
+                    width: 32px;
+                    height: 32px;
+                    margin-right: 12px;
+                    display: inline-block;
+                    background: url(../images/sprites.png) no-repeat;
+                }
+                @include skill-ico;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+                &:hover {
+                    color: $cream-color;
+                    text-decoration: underline;
+                    @include skill-ico-hover;
+                }
+            }
+        }
+    }
+    &__box--skill {
+        background-image: url(../images/description_moon_small.png);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: auto auto;
+        &__circle {
+            height: 500px;
+            @include spin(-230px, -10px);
+        }
+    }
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

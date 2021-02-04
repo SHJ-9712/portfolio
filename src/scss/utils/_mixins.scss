@@ -1,1 +1,37 @@
 @charset "utf-8";
+@mixin skill-ico {
+    &:nth-of-type(1)::before {
+        background-position: -1px -1px;
+    }
+    &:nth-of-type(2)::before {
+        background-position: -133px -1px;
+    }
+    &:nth-of-type(3)::before {
+        background-position: -34px -1px;
+    }
+    &:nth-of-type(4)::before {
+        background-position: -166px -1px;
+    }
+    &:nth-of-type(5)::before {
+        background-position: -67px -1px;
+    }
+    &:nth-of-type(6)::before {
+        background-position: -199px -1px;
+    }
+    &:nth-of-type(7)::before {
+        background-position: -100px -1px;
+    }
+}
+@mixin skill-ico-hover {
+    &::before {
+        background-position-y: -34px;
+    }
+}
+@mixin spin($x, $y) {
+    position: absolute;
+    right: $x;
+    top: $y;
+    -webkit-animation: spin 80s linear infinite;
+    -moz-animation: spin 80s linear infinite;
+    animation: spin 80s linear infinite;
+}
