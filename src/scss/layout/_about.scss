@@ -14,36 +14,33 @@
         }
         h2 {
             margin: 0;
+            display: inline-block;
             font-size: 42px;
             text-transform: uppercase;
         }
-        &__ico {
+        ul {
             margin: 32px 0 0 0;
-            display: flex;
-            flex-wrap: wrap;
             li {
                 width: 50%;
-                margin-bottom: 30px;
                 display: flex;
                 align-items: center;
                 cursor: default;
                 z-index: 10;
                 &::before {
                     content: '';
-                    width: 32px;
-                    height: 32px;
+                    min-width: 32px;
+                    min-height: 32px;
                     margin-right: 12px;
                     display: inline-block;
                     background: url(../images/sprites.png) no-repeat;
                 }
-                @include skill-ico;
                 &:last-of-type {
                     margin-bottom: 0;
                 }
                 &:hover {
                     color: $cream-color;
                     text-decoration: underline;
-                    @include skill-ico-hover;
+                    @include ico-hover;
                 }
             }
         }
@@ -53,9 +50,45 @@
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: auto auto;
+        &__ico {
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                margin-bottom: 16px;
+                @include skill-ico;
+            }
+        }
         &__circle {
             height: 500px;
             @include spin(-230px, -10px);
+        }
+    }
+    &__box--info {
+        background-image: url(../images/follow_bg.png);
+        background-position: 50%;
+        &__title {
+            text-align: center;
+            .date {
+                font-size: 16px;
+            }
+        }
+        &__ico {
+            li {
+                margin-bottom: 40px;
+                @include info-ico;
+                a {
+                    width: 100%;
+                    line-height: 32px;
+                    color: $blue-color;
+                    &:hover {
+                        color: $cream-color;
+                    }
+                }
+            }
+        }
+        &__circle {
+            height: 637px;
+            @include spin(-230px, 80px);
         }
     }
     @keyframes spin {
