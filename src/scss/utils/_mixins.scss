@@ -1,4 +1,12 @@
 @charset "utf-8";
+@mixin prefix($declarations, $prefixes: ()) {
+    @each $property, $value in $declarations {
+        @each $prefix in $prefixes {
+            #{'-' + $prefix + '-' + $property}: $value;
+        }
+        #{$property}: $value;
+    }
+}
 @mixin skill-ico {
     &:nth-of-type(1)::before {
         background-position: -1px -1px;

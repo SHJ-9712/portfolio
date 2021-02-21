@@ -1,0 +1,142 @@
+@charset "utf-8";
+.portfolio {
+    padding: 88px 131px;
+    background: url(../images/recent_posts.jpg) no-repeat;
+    background-size: cover;
+    &__title {
+        text-align: center;
+        h2 {
+            margin: 0 0 24px;
+            font-size: 42px;
+            color: $cream-color;
+        }
+        a {
+            text-transform: uppercase;
+            color: $gold-color;
+            border-bottom: 1px solid $gold-color;
+            &:hover {
+                color: $cream-color;
+                border-color: $cream-color;
+            }
+        }
+    }
+    &__container {
+        margin-top: 60px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        @include prefix((flex-wrap: wrap), webkit ms);
+        @include prefix((justify-content: space-between), webkit);
+        &__list {
+            width: 753px;
+            margin-bottom: 88px;
+            &:nth-of-type(n + 3) {
+                margin-bottom: 0;
+            }
+            &__box {
+                padding: 32px 32px 80px;
+                text-align: center;
+                color: $blue-color;
+                background-color: $cream-color;
+                position: relative;
+                img {
+                    width: 100%;
+                    height: 516px;
+                    @include prefix((filter: sepia(100%)), webkit);
+                    @include prefix((transition: filter 0.2s), webkit moz o);
+                }
+                h3 {
+                    margin: 21px 0 0 0;
+                    font-size: 28px;
+                    small {
+                        font-size: 16px;
+                    }
+                }
+                p {
+                    width: 100%;
+                    margin: 0;
+                    line-height: 56px;
+                    text-transform: uppercase;
+                    background-color: $gold-color;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+                &:hover {
+                    img {
+                        @include prefix((filter: sepia(0%)), webkit);
+                    }
+                }
+            }
+        }
+    }
+    &__overlay {
+        padding-top: 40px;
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow-y: auto;
+        background-color: rgba(0,0,0,0.4);
+        &__modal {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+            position: relative;
+            @include prefix((animation: animatetop linear 0.4s), webkit);
+            &__header {
+                padding: 15px;
+                font-size: 24px;
+                text-align: center;
+                border-bottom: 1px solid #e5e5e5;
+            }
+            &__body {
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+                &__info {
+                    margin: 15px;
+                    line-height: 24px;
+                    &__link {
+                        font-size: 0;
+                        a {
+                            width: 100px;
+                            margin-right: 8px;
+                            display: inline-block;
+                            font-size: 16px;
+                            text-align: center;
+                            line-height: 40px;
+                            color: $cream-color;
+                            background-color: $blue-color;
+                            &:last-of-type {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            &__footer {
+                padding: 15px;
+                text-align: right;
+                border-top: 1px solid #e5e5e5;
+            }
+        }
+    }
+}
+.close-modal {
+    transition: 0.4s;
+    @include prefix((animation: animatetop 0.4s linear reverse), webkit);
+}
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
