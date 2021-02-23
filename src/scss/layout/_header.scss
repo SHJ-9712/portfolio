@@ -11,17 +11,17 @@ header {
     }
     h1 {
         margin: 38px 0 64px;
-        font-size: 22px;
+        font-size: 1.375rem;
         line-height: 32px;
         color: $gold-color;
     }
-    a {
+    .scroll-to {
         padding: 12px 22px;
-        font-size: 16px;
+        font-size: 1rem;
         color: $blue-color;
         background-color: $cream-color;
         border-radius: 100px;
-        transition: all 0.1s;
+        @include prefix((transition: all .1s), webkit moz o);
         &:hover {
             background-color: $gold-color;
         }
