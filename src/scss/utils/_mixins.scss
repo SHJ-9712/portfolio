@@ -31,14 +31,20 @@
     }
 }
 @mixin info-ico {
-    &:nth-of-type(1)::before {
-        background-position: -232px -1px;
+    &:nth-of-type(1) {
+        a::before {
+            background-position: -232px -1px;
+        }
     }
-    &:nth-of-type(2)::before {
-        background-position: -265px -1px;
+    &:nth-of-type(2) {
+        a::before {
+            background-position: -265px -1px;
+        }
     }
-    &:nth-of-type(3)::before {
-        background-position: -298px -1px;
+    &:nth-of-type(3) {
+        a::before {
+            background-position: -298px -1px;
+        }
     }
 }
 @mixin ico-hover {
@@ -50,7 +56,5 @@
     position: absolute;
     right: $x;
     top: $y;
-    -webkit-animation: spin 80s linear infinite;
-    -moz-animation: spin 80s linear infinite;
-    animation: spin 80s linear infinite;
+    @include prefix((animation: spin 80s linear infinite), webkit moz);
 }

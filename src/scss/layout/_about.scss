@@ -1,6 +1,9 @@
 @charset "utf-8";
 .about-me {
     margin: 32px 0;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
     &__box {
         width: 49.138%;
@@ -15,32 +18,21 @@
         h2 {
             margin: 0;
             display: inline-block;
-            font-size: 42px;
+            font-size: 2.625rem;
             text-transform: uppercase;
         }
         ul {
             margin: 32px 0 0 0;
             li {
                 width: 50%;
+                display: -webkit-flex;
+                display: -moz-box;
+                display: -ms-flexbox;
                 display: flex;
-                align-items: center;
                 cursor: default;
                 z-index: 10;
-                &::before {
-                    content: '';
-                    min-width: 32px;
-                    min-height: 32px;
-                    margin-right: 12px;
-                    display: inline-block;
-                    background: url(../images/sprites.png) no-repeat;
-                }
                 &:last-of-type {
                     margin-bottom: 0;
-                }
-                &:hover {
-                    color: $cream-color;
-                    text-decoration: underline;
-                    @include ico-hover;
                 }
             }
         }
@@ -51,11 +43,28 @@
         background-position: 0 0;
         background-size: auto auto;
         &__ico {
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-wrap: wrap;
+            @include prefix((flex-wrap: wrap), webkit ms);
             li {
                 margin-bottom: 16px;
+                @include prefix((align-items: center), webkit moz);
+                &::before {
+                    content: '';
+                    min-width: 32px;
+                    min-height: 32px;
+                    margin-right: 12px;
+                    display: inline-block;
+                    background: url(../images/sprites.png) no-repeat;
+                }
                 @include skill-ico;
+                &:hover {
+                    color: $cream-color;
+                    text-decoration: underline;
+                    @include ico-hover;
+                }
             }
         }
         &__circle {
@@ -69,20 +78,31 @@
         &__title {
             text-align: center;
             .date {
-                font-size: 16px;
+                font-size: 1rem;
             }
         }
         &__ico {
             li {
                 margin-bottom: 40px;
-                @include info-ico;
                 a {
-                    width: 100%;
                     line-height: 32px;
                     color: $blue-color;
-                    &:hover {
-                        color: $cream-color;
+                    z-index: 10;
+                    &::before {
+                        content: '';
+                        min-width: 32px;
+                        min-height: 32px;
+                        margin-right: 12px;
+                        display: inline-block;
+                        background: url(../images/sprites.png) no-repeat;
+                        vertical-align: top;
                     }
+                }
+                @include info-ico;
+                a:hover {
+                    color: $cream-color;
+                    text-decoration: underline;
+                    @include ico-hover;                    
                 }
             }
         }
@@ -97,6 +117,18 @@
         }
         100% {
             transform: rotate(360deg);
+        }
+    }
+}
+
+@media screen and (max-width: 64.06rem) {
+    .about-me {
+        display: block;
+        &__box {
+            width: 100%;
+            &:first-of-type {
+                margin: 0 0 32px 0;
+            }
         }
     }
 }
